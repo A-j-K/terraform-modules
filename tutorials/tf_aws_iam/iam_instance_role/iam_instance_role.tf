@@ -29,6 +29,6 @@ resource "aws_iam_instance_profile" "iam_profile" {
   ]
 }
 
-output "assume_role_policy_id" { value = "${aws_iam_instance_profile.assume_role_policy.id}" }
+output "profile_id" { value = "${aws_iam_instance_profile.iam_profile.id}" }
 
 
