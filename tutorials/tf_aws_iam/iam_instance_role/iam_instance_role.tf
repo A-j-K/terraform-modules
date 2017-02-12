@@ -29,6 +29,6 @@ resource "aws_iam_instance_profile" "iam_profile" {
   ]
 }
 
-output "profile_id" { value = "${aws_iam_instance_profile.iam_profile.id}" }
+output "iam_profile_id" { value = "${aws_iam_instance_profile.iam_profile.id}" }
 
 
