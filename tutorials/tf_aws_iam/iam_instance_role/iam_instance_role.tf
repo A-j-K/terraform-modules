@@ -1,19 +1,19 @@
 
 variable "name" { }
 variable "path" { default = "/" }
-variable "file_policy" { }
-variable "file_assume_role_policy" { }
+variable "policy" { }
+variable "assume_role_policy" { }
 
 resource "aws_iam_role" "assume_role_policy" {
     name = "${var.name}-assume-role-policy"
     path = "${var.path}"
-    assume_role_policy = "${file("${path.module}/${var.file_assume_role_policy}")}"
+    assume_role_policy = "${var.assume_role_policy}"
 }
 
 resource "aws_iam_policy" "policy" {
   name = "${var.name}-policy"
   path = "${var.path}"
-  policy = "${file("${path.module}/${var.file_policy}")}"
+  policy = "${var.policy}"
 }
 
 resource "aws_iam_policy_attachment" "attach" {
