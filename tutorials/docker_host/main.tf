@@ -6,13 +6,9 @@ resource "aws_instance" "docker_host" {
   vpc_security_group_ids = "${var.vpc_security_group_ids}"
   user_data = "${var.user_data}"
   count = "${var.count}" 
-  tag {
-    key = "Name"
-    value = "${var.name}"
-  }
-  tag {
-    key = "BuiltBy"
-    value = "${var.builtby}"
+  tags {
+    "Name" = "${var.name}"
+    "BuiltBy" = "${var.builtby}"
   }
 }
 
