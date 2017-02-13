@@ -1,5 +1,8 @@
 
-variable "tags" {}
+variable "tags" {
+  type = "map"
+  default = {}
+}
 
 variable "security_group_name" {
   description = "The name for this security group"
@@ -32,7 +35,6 @@ resource "aws_security_group" "main_security_group" {
   }
   tags = "${merge(var.tags, map("Name", "${var.security_group_name}"), map("BuiltBy", "Hashicorp-Terraform"))}"
 }
-
 
 output "security_group_id_ssh_only" {
   value = "${aws_security_group.main_security_group.id}"

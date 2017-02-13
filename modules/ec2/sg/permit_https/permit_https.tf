@@ -1,5 +1,8 @@
 
-variable "tags" {}
+variable "tags" {
+  type = "map"
+  default = {}
+}
 
 variable "security_group_name" {
   description = "The name for this security group"
