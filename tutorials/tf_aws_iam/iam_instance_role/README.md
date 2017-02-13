@@ -34,4 +34,41 @@ Outputs
 
 - `iam_profile_id` This can be used as the input to an aws_instance.iam_instance_profile variable
 
+Extra Information
+-----------------
+
+An example of a policy is:-
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+An example of an assume policy is:-
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Principal": {
+              "Service": ["ec2.amazonaws.com"]
+            },
+            "Sid": ""
+        }
+    ]
+}
+```
+
+For further information see the [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html](AWS documentation)
 
