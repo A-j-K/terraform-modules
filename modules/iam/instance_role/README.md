@@ -23,7 +23,7 @@ You can use these in your terraform template with the following steps.
 
 ```
 module "iam_role" {
-  source = "ource = "git@github.com:A-j-K/terraform-modules.git//modules/iam/instance_role/instance_role?ref=master"
+  source = "ource = "git@github.com:A-j-K/terraform-modules.git//modules/iam/instance_role?ref=master"
   name = "${var.name}"
   path = "/"
   policy = "${file("policy.json")}"
