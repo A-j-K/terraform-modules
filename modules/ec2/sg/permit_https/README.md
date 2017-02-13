@@ -14,6 +14,7 @@ Input Variables
 - `vpc_id` - The VPC this security group should be created in.
 - `source_cidr_block` - The source CIDR block, defaults to `0.0.0.0/0`
    for this module.
+- `tags`
 
 Output Variables
 ----------------

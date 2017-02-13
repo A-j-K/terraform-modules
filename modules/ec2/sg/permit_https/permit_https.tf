@@ -1,4 +1,6 @@
 
+variable "tags" {}
+
 variable "security_group_name" {
   description = "The name for this security group"
 }
