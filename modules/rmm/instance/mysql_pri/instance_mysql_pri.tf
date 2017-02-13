@@ -38,6 +38,6 @@ resource "aws_instance" "ec2_instance" {
 }
 
 output "instance_id" {
-  value = "${aws_instance.ec2_instance_with_iam_profile.id}"
+  value = "${aws_instance.ec2_instance.id}"
 }
 
