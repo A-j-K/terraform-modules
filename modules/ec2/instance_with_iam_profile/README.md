@@ -7,6 +7,7 @@ Input Variables
 ---------------
 
 - `ami`
+- `azs`
 - `instance_type`
 - `iam_instance_profile`
 - `subnet_id`
