@@ -5,7 +5,7 @@ variable "ami"  { }
 variable "instance_type" { }
 variable "iam_instance_profile" { } 
 variable "subnet_id" { }
-variable "ebs_block_device" {  default = {} }
+variable "ebs_block_device" {  default = [] }
 variable "vpc_security_group_ids" { default = [] }
 variable "user_data" { }
 variable "count" { default = 1 }
