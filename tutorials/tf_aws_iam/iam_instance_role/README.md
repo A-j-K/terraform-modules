@@ -70,5 +70,5 @@ An example of an assume policy is:-
 }
 ```
 
-For further information see the [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html](AWS documentation)
+For further information see the [http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html](AWS documentation)
 
