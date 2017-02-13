@@ -9,6 +9,7 @@ variable "vpc_security_group_ids" { default = [] }
 variable "user_data" { }
 variable "count" { default = 1 }
 variable "tags" { default = {} }
+variable "local_tags" { default = { "BuiltBy" = "Hashicorp-Terraform" } }
 
 resource "aws_instance" "ec2_instance_with_iam_profile" {
   name = "${var.name}"
@@ -19,11 +20,7 @@ resource "aws_instance" "ec2_instance_with_iam_profile" {
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
   user_data = "${var.user_data}"
   count = "${var.count}" 
-  tags = "${merge(var.tags, 
-    map(
-      "Name", format("%s.%s", var.name, element(var.azs, count.index)),
-      "BuiltBy", "Hashicorp-Terraform"
-    ))}"
+  tags = "${merge(var.tags, local_tags)}"
 }
 
 output "instance_id" {
