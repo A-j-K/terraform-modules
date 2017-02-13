@@ -9,12 +9,6 @@ variable "vpc_security_group_ids" { default = [] }
 variable "user_data" { }
 variable "count" { default = 1 }
 variable "tags" { default = {} }
-variable "default_tags" { 
-  type = "map"
-  default = {
-    "BuiltBy" = "Hashicorp-Terraform" 
-  } 
-}
 
 resource "aws_instance" "ec2_instance_with_iam_profile" {
   ami = "${var.ami}"

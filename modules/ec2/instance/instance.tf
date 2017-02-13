@@ -9,18 +9,13 @@ variable "count" { default = 1 }
 variable "tags" { default = {} }
 
 resource "aws_instance" "ec2_instance" {
-  name = "${var.name}"
   ami = "${var.ami}"
   instance_type = "${var.instance_type}"
   subnet_id = "${var.subnet_id}"
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
   user_data = "${var.user_data}"
   count = "${var.count}" 
-  tags = "${merge(var.tags, 
-    map(
-      "Name", format("%s.%s", var.name, element(var.azs, count.index)),
-      "BuiltBy", "Hashicorp-Terraform"
-    ))}"
+  tags = "${merge(var.tags, map("Name", "${var.name}"), map("BuiltBy", "Hashicorp-Terraform"))}"
 }
 
 output "instance_id" {
