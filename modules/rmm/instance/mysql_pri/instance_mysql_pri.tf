@@ -12,7 +12,7 @@ variable "user_data" { }
 variable "count" { default = 1 }
 variable "tags" { default = {} }
 
-resource "aws_instance" "ec2_instance_with_iam_profile" {
+resource "aws_instance" "ec2_instance" {
   ami = "${var.ami}"
   instance_type = "${var.instance_type}"
   iam_instance_profile = "${var.iam_instance_profile}"
@@ -25,7 +25,7 @@ resource "aws_instance" "ec2_instance_with_iam_profile" {
     volume_size = "512"
   }
   provisioner "local-exec" {
-    command = "aws ec2 attach-volume --region=${var.region} --volume-id=${var.volume_id} --instance-id=${aws_instance.ec2_instance_with_iam_profile} --device=/dev/xvdf"
+    command = "aws ec2 attach-volume --region=${var.region} --volume-id=${var.volume_id} --instance-id=${aws_instance.ec2_instance.id} --device=/dev/xvdf"
   }
   provisioner "remote-exec" {
     inline = [
