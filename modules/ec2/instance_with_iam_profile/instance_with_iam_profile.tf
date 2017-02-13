@@ -23,7 +23,7 @@ resource "aws_instance" "ec2_instance_with_iam_profile" {
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
   user_data = "${var.user_data}"
   count = "${var.count}" 
-  tags = "${merge(var.tags, map({"Name", "${var.name}"}, {"BuiltBy", "Hashicorp-Terraform"}))}"
+  tags = "${merge(var.tags, map("Name", "${var.name}"), map("BuiltBy", "Hashicorp-Terraform"))}"
 }
 
 output "instance_id" {
