@@ -5,6 +5,7 @@ variable "ami"  { }
 variable "instance_type" { }
 variable "iam_instance_profile" { } 
 variable "subnet_id" { }
+variable "ebs_block_device" { }
 variable "vpc_security_group_ids" { default = [] }
 variable "user_data" { }
 variable "count" { default = 1 }
@@ -18,6 +19,7 @@ resource "aws_instance" "ec2_instance_with_iam_profile" {
   vpc_security_group_ids = ["${var.vpc_security_group_ids}"]
   user_data = "${var.user_data}"
   count = "${var.count}" 
+  ebs_block_device = "${var.ebs_block_device}"
   tags = "${merge(var.tags, map("Name", "${var.name}"), map("BuiltBy", "Hashicorp-Terraform"))}"
 }
 
